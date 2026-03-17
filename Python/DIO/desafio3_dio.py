@@ -10,7 +10,13 @@ lancamentos = entrada.split(',')
 for lancamento in lancamentos:
     tipo, valor = lancamento.strip().split()
     valor = float(valor)
-    # TODO: Atualize o saldo conforme o tipo de lançamento ('R' soma, 'D' subtrai)
+    
+    if "R" in tipo: #caso o tipo seja R, ele soma no saldo. Se não, ele verifica se é D e subtrai o saldo pelo valor
+        saldo += valor 
+    elif "D" in tipo:
+        saldo -= valor
 
+    # TODO: Atualize o saldo conforme o tipo de lançamento ('R' soma, 'D' subtrai)
 # Imprima o saldo final com duas casas decimais
+
 print(f"{saldo:.2f}")
